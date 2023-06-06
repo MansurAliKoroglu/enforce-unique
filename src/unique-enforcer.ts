@@ -1,5 +1,5 @@
 import { UniqueComparable } from './definitions/unique-comparable';
-import { EnforceUniqueError } from './errors/unique.error';
+import { EnforceUniqueError } from './errors/enforce-unique.error';
 
 /**
  * Class that can be used to enforce unique values.
