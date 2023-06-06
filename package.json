@@ -1,0 +1,19 @@
+{
+  "name": "enforce-unique",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "description": "Enforce unique values before you assign them",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Mansur Ali Koroglu",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@types/node": "20.2.5",
+    "typescript": "5.1.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
