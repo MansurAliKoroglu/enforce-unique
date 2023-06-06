@@ -16,5 +16,10 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MansurAliKoroglu/enforce-unique"
+  },
+  "homepage": "https://github.com/MansurAliKoroglu/enforce-unique#readme"
 }
