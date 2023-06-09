@@ -1,4 +1,5 @@
 import { EnforceLimitError } from './errors/enforce-limit.error';
+import { EnforceUniqueError } from './errors/enforce-unique.error';
 import { UniqueEnforcer } from './unique-enforcer';
 
 describe('unique-enforcer', () => {
@@ -16,7 +17,7 @@ describe('unique-enforcer', () => {
 
       expect(() => {
         uniqueEnforcer.enforce(1)
-      }).toThrow();
+      }).toThrow(EnforceUniqueError);
     });
   });
 
