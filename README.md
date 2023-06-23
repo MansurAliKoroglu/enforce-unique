@@ -1,6 +1,6 @@
 # enforce-unique
 
-`enforce-unique` is a package that helps you ensure that values are unique before you assign them.
+`enforce-unique` is a package that helps you ensure values are unique before you assign them.
 
 ## Installation
 
