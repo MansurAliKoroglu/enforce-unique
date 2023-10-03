@@ -16,7 +16,7 @@ import { EnforceUniqueError } from './errors/enforce-unique.error';
  * const secondEmail = uniqueEnforcer.enforce(faker.internet.email())
  */
 export class UniqueEnforcer {
-  private store: string[] = [];
+  private store = new Set<string>();
 
   /**
    * Function that can be used to enforce unique values.
@@ -88,7 +88,7 @@ export class UniqueEnforcer {
 
         const stringifiedValue = JSON.stringify(value);
 
-        if (!this.store.includes(stringifiedValue)) {
+        if (!this.store.has(stringifiedValue)) {
           break;
         }
 
@@ -99,12 +99,12 @@ export class UniqueEnforcer {
 
       const stringifiedValue = JSON.stringify(value);
 
-      if (this.store.includes(stringifiedValue)) {
+      if (this.store.has(stringifiedValue)) {
         throw new EnforceUniqueError();
       }
     }
 
-    this.store.push(JSON.stringify(value));
+    this.store.add(JSON.stringify(value));
 
     return value;
   }
