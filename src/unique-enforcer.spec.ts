@@ -108,4 +108,18 @@ describe('unique-enforcer', () => {
       }).toThrowError(EnforceLimitError);
     });
   });
+
+  describe('reset()', () => {
+    test('It should clear the internal store', () => {
+      const uniqueEnforcer = new UniqueEnforcer();
+
+      uniqueEnforcer.enforce(1);
+
+      uniqueEnforcer.reset();
+
+      expect(() => {
+        uniqueEnforcer.enforce(1)
+      }).not.toThrow();
+    });
+  });
 });

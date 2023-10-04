@@ -108,4 +108,23 @@ export class UniqueEnforcer {
 
     return value;
   }
+
+  /**
+   * Resets the internal store of unique values in the UniqueEnforcer instance.
+   * This method allows you to start enforcing uniqueness from scratch.
+   *
+   * @example
+   *
+   * const uniqueEnforcer = new UniqueEnforcer();
+   *
+   * const value1 = uniqueEnforcer.enforce('value');
+   *
+   * uniqueEnforcer.reset();
+   *
+   * // There will be no error thrown because of reset.
+   * const value2 = uniqueEnforcer.enforce('value');
+   */
+  reset() {
+    this.store.clear();
+  }
 }

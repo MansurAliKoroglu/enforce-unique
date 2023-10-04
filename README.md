@@ -87,3 +87,16 @@ const email = uniqueEnforcerEmail.enforce(
   },
 );
 ```
+
+You can reset the unique enforcer instance to start over, clearing any previously stored values.
+
+```ts
+  const uniqueEnforcer = new UniqueEnforcer();
+
+  const value1 = uniqueEnforcer.enforce('value');
+
+  uniqueEnforcer.reset();
+
+  // There will be no error thrown because of reset.
+  const value2 = uniqueEnforcer.enforce('value');
+```
