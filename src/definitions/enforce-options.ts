@@ -1,3 +1,5 @@
+import { UniqueComparable } from './unique-comparable';
+
 /**
  * Defines the options that can be used in `enforce` function.
  */
@@ -15,4 +17,11 @@ export interface EnforceOptions {
    * @default 50
    */
   maxRetries?: number;
+
+  /**
+   * Exclude specific value(s) from being returned.
+   *
+   * @default []
+   */
+  exclude?: UniqueComparable[];
 };

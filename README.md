@@ -65,7 +65,7 @@ for (let i = 0; i < 100; i++) {
 }
 ```
 
-Default limits
+### Default limits
 
 ```ts
 {
@@ -73,6 +73,8 @@ Default limits
   maxRetries: 50,
 }
 ```
+
+## Options
 
 You can provide options object to change the defaults
 
@@ -84,9 +86,24 @@ const email = uniqueEnforcerEmail.enforce(
   {
     maxTime: 1000,
     maxRetries: 1000,
+    exclude: [1]
   },
 );
 ```
+
+### maxTime
+
+The time in milliseconds this method may take before throwing an `EnforceLimitError`
+
+### maxRetries
+
+The total number of attempts to try before throwing an `EnforceLimitError`
+
+### exclude
+
+Exclude specific value(s) from being returned.
+
+## Resetting
 
 You can reset the unique enforcer instance to start over, clearing any previously stored values.
 

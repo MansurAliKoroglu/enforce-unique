@@ -43,8 +43,8 @@ export class UniqueEnforcer {
   /**
    * Function that can be used to enforce unique values.
    *
-   * It accepts a value generator function, runs it to generate the value and returns it back if same value is not used before.
-   * If the same value used before, it tries again until limits are exceeded.
+   * It accepts a value generator function, runs it to generate the value and returns it back if the same value is not used before or not excluded.
+   * If the same value used before or excluded, it tries again until limits are exceeded.
    * It throws an {@link EnforceLimitError} when limits are exceeded.
    *
    * Limits can be configured with options parameter.
@@ -70,8 +70,17 @@ export class UniqueEnforcer {
   enforce<T extends UniqueComparable>(valueOrGenerator: T | (() => T), options: EnforceOptions = {
     maxRetries: 50,
     maxTime: 50,
+    exclude: [],
   }) {
     const { maxTime = 50, maxRetries = 50 } = options;
+
+    let {
+      exclude = [],
+    } = options;
+
+    exclude = exclude.map((excludedValue) => {
+      return JSON.stringify(excludedValue);
+    });
 
     let value;
 
@@ -88,7 +97,7 @@ export class UniqueEnforcer {
 
         const stringifiedValue = JSON.stringify(value);
 
-        if (!this.store.has(stringifiedValue)) {
+        if (!this.store.has(stringifiedValue) && !exclude.includes(stringifiedValue)) {
           break;
         }
 

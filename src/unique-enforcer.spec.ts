@@ -107,6 +107,21 @@ describe('unique-enforcer', () => {
         );
       }).toThrowError(EnforceLimitError);
     });
+
+    test('It should not return excluded value', () => {
+      const uniqueEnforcer = new UniqueEnforcer();
+
+      const expectedReturn = [2, 3];
+
+      const value = uniqueEnforcer.enforce(
+        jest.fn().mockReturnValueOnce([1, 2]).mockReturnValueOnce(expectedReturn),
+        {
+          exclude: [[1, 2]],
+        }
+      );
+
+      expect(value).toBe(expectedReturn);
+    });
   });
 
   describe('reset()', () => {
