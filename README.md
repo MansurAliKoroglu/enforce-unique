@@ -2,6 +2,10 @@
 
 `enforce-unique` is a package that helps you ensure values are unique before you assign them.
 
+> **Maintenance:** This package is *actively maintained* and currently stable. No new release is required at this time.
+>
+> If you find a bug, have an idea, or think something could be improved, feel free to open an issue. Contributions and feedback are welcome.
+
 ## Installation
 
 ```sh
